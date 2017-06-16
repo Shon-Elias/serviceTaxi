@@ -11,6 +11,10 @@ const setSaltAndPassword = user => {
 
 module.exports = db.define('user', {
 
+  role: {
+    type: Sequelize.ENUM('superAdmin', 'admin', 'driver', 'passenger'),
+    defaultValue: 'passenger'
+  },
    name: {
     type: Sequelize.STRING,
     allowNull: false,
